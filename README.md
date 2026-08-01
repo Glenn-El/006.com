@@ -1,0 +1,1 @@
+New 006.com website that I am creating to migrate away from the free Wordpress.com site I have been using. The goal is to be able to have a site that will support working with AI tools and be able to grow with my new features and ideas like the BONDFIRE podcast, and Identity Matrix.
