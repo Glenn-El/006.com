@@ -3,11 +3,14 @@ import { getCollection, render } from 'astro:content';
 import BlogPost from '../../layouts/BlogPost.astro';
 
 export async function getStaticPaths() {
-  const posts = await getCollection('blog');
-  return posts.map((post) => ({
-    params: { slug: post.id.replace(/\.mdx?$/, '') },
-    props: post,
-  }));
+  const posts = await getCollection('bog');
+  return posts.map((post) => {
+    const slug = post.id.replace('.md', '').replace('.mdx', '');
+    return {
+      params: { slug },
+      props: post,
+    };
+  });
 }
 
 const post = Astro.props;

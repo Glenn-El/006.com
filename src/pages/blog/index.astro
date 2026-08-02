@@ -1,0 +1,41 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
+import { getCollection } from 'astro:content';
+
+const posts = await getCollection('bog');
+---
+
+<html lang="en">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    <style>
+      main { width: 960px; max-width: calc(100% - 2em); margin: 0 auto; padding: 2em 1em; }
+      ul { list-style-type: none; padding: 0; }
+      li { margin-bottom: 1.5rem; padding: 1rem; border: 1px solid #eee; border-radius: 8px; }
+      a { text-decoration: none; font-size: 1.25rem; font-weight: bold; color: #111; }
+      a:hover { color: #0066cc; }
+    </style>
+  </head>
+  <body>
+    <Header />
+    <main>
+      <h2>Migrated WordPress Posts ({posts.length})</h2>
+      <ul>
+        {
+          posts.map((post) => {
+            const slug = post.id.replace('.md', '').replace('.mdx', '');
+            return (
+              <li>
+                <a href={'/blog/' + slug + '/'}>{post.data.title || slug}</a>
+              </li>
+            );
+          })
+        }
+      </ul>
+    </main>
+    <Footer />
+  </body>
+</html>
