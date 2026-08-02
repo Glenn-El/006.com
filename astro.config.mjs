@@ -17,13 +17,13 @@ export default defineConfig({
 			options: {
 				variants: [
 					{
-						src: ['./src/assets/fonts/atkinson-regular.woff'],
+						src: ['./src/assets/fonts/atkinson-regular.ttf'],
 						weight: 400,
 						style: 'normal',
 						display: 'swap',
 					},
 					{
-						src: ['./src/assets/fonts/atkinson-bold.woff'],
+						src: ['./src/assets/fonts/atkinson-bold.ttf'],
 						weight: 700,
 						style: 'normal',
 						display: 'swap',
